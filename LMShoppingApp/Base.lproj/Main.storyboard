@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7kG-cV-KkJ">
-    <device id="retina5_5" orientation="landscape">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,14 +19,14 @@
                         <viewControllerLayoutGuide type="bottom" id="QjD-xc-N5r"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YXF-gh-1Ym">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXH-WX-gpm">
-                                <rect key="frame" x="20" y="30" width="696" height="30"/>
+                                <rect key="frame" x="20" y="25" width="374" height="30"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1if-Ad-k8n">
-                                        <rect key="frame" x="0.0" y="0.0" width="696" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
                                         <segments>
                                             <segment title=""/>
                                             <segment title=""/>
@@ -49,7 +49,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slx-sB-xfy" customClass="LMShoppingCollectionView" customModule="LMShoppingApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="70" width="736" height="340"/>
+                                <rect key="frame" x="0.0" y="65" width="414" height="340"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="340" id="t67-Hh-Fu0"/>
@@ -61,7 +61,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95319688320159912" green="0.96451640129089355" blue="0.9803999662399292" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="RXH-WX-gpm" firstAttribute="top" secondItem="h8z-xW-5JA" secondAttribute="bottom" constant="10" id="2mn-JY-Dn4"/>
+                            <constraint firstItem="RXH-WX-gpm" firstAttribute="top" secondItem="h8z-xW-5JA" secondAttribute="bottom" constant="5" id="2mn-JY-Dn4"/>
                             <constraint firstItem="slx-sB-xfy" firstAttribute="height" secondItem="YXF-gh-1Ym" secondAttribute="height" multiplier="0.5" priority="995" id="Bxi-E4-gVd"/>
                             <constraint firstAttribute="trailing" secondItem="slx-sB-xfy" secondAttribute="trailing" id="EnH-vz-nKQ"/>
                             <constraint firstItem="slx-sB-xfy" firstAttribute="leading" secondItem="YXF-gh-1Ym" secondAttribute="leading" id="Ual-ta-Thy"/>
@@ -81,7 +81,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="95d-0l-LN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="drs-nm-7Ok" customClass="LMShoppingViewModel" customModule="LMShoppingApp" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="-688" y="-481"/>
+            <point key="canvasLocation" x="-688.40579710144937" y="-481.79347826086962"/>
         </scene>
     </scenes>
 </document>

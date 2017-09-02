@@ -17,7 +17,7 @@ import UIKit
  
  - returns: The string representation of the class (name of the bundle dot name of the class)
  */
-public func get_classNameAsString(obj: Any) -> String? {
+public func get_classNameAsString(obj: Any?) -> String? {
     
     var classNanme = obj
     
@@ -32,6 +32,7 @@ public func get_classNameAsString(obj: Any) -> String? {
         return NSStringFromClass(object).components(separatedBy: ".").last ?? ""
     }
     
+    //If class cannot be created
     return nil
 }
 
@@ -48,16 +49,20 @@ extension String {
      */
     public func hexColor() -> UIColor {
         
+        //Remove invalid char
         var cString:String = self.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
+        //remove '#' prefix
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
         }
         
+        //To be exact to 6 digit, if not retun 'gray'
         if ((cString.characters.count) != 6) {
             return UIColor.gray
         }
         
+        //Get 32-Int value
         var rgbValue:UInt32 = 0
         Scanner(string: cString).scanHexInt32(&rgbValue)
         

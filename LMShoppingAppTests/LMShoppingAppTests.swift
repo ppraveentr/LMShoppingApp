@@ -11,7 +11,7 @@ import XCTest
 
 class LMShoppingAppTests: XCTestCase {
     
-    var productJSON: [String : Any] = [
+    fileprivate static var productJSON: [String : Any] = [
         "conversion": [
             //Valid sets
             [ "from":"AED", "to":"SAR", "rate":"0.8" ],
@@ -66,13 +66,9 @@ class LMShoppingAppTests: XCTestCase {
                 ]
         ]
     ]
-    
-    var product: LMProducts?
-    
-    let singleCurency: NSDictionary = [ "from":"AED", "to":"SAR", "rate":"0.8" ]
-    
-    let viewModel = LMShoppingViewModel()
-    
+
+    fileprivate static let singleCurency: NSDictionary = [ "from":"AED", "to":"SAR", "rate":"0.8" ]
+
     lazy var productDetails = LMProductDetails.createProductDetails([
         "url":"http://be962883fa4932cb8c45-4918b6c23895973d0d77439479dabaa9.r81.cf3.rackcdn.com/119580217-PA008_01-800.jpg",
         "name":"Avent Medium-flow Silicone Teats",
@@ -80,11 +76,15 @@ class LMShoppingAppTests: XCTestCase {
         "currency": "AED"
         ])
     
+    var product: LMProducts?
+    
+    let viewModel = LMShoppingViewModel()
+    
     override func setUp() {
         super.setUp()
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        product = LMProducts(productData: productJSON as NSDictionary)
+        product = LMProducts(productData: LMShoppingAppTests.productJSON as NSDictionary)
         
         viewModel.products = product
     }
@@ -125,7 +125,7 @@ class LMShoppingAppTests: XCTestCase {
     //MARK: Currency Creation Test
     func testCurrencyCreation() {
         
-        let currency = LMCurrency.createCurrency(singleCurency)
+        let currency = LMCurrency.createCurrency(LMShoppingAppTests.singleCurency)
 
         XCTAssertNotNil(currency)
 
@@ -157,6 +157,15 @@ class LMShoppingAppTests: XCTestCase {
         XCTAssertEqual(viewModel.productPrice(for: productDetails!, convCurrency: "SAR"), "SAR 21.60")
     }
     
+    func testInvalidCurrencyConversion() {
+        
+        viewModel.selectedCurrency = "ERE"
+        
+        XCTAssertEqual(viewModel.productPrice(for: productDetails!), "")
+        
+        XCTAssertEqual(viewModel.productPrice(for: productDetails!, convCurrency: "INERE"), "")
+    }
+    
     func testCurrencyDisplayConversion() {
         
         XCTAssertEqual(viewModel.getDisplayString(for: 21.60, currencyType: "SAR"), "SAR 21.60")
@@ -168,8 +177,28 @@ class LMShoppingAppTests: XCTestCase {
     
     func testPerformanceExample() {
         self.measure {
-            _ = LMProducts(productData: self.productJSON as NSDictionary)
+            _ = LMProducts(productData: LMShoppingAppTests.productJSON as NSDictionary)
         }
+    }
+    
+    // Asynchronous test: success fast, failure slow
+    func testNetworkManager() {
+        
+        let promise = expectation(description: "Status code: 200")
+        
+        LMNetworkManager.fetchProductList { (dicVal, error) in
+            //If error
+            if let error = error {
+                XCTFail("Error: \(error.localizedDescription)")
+                return
+            }
+                //if there is not error
+            else if dicVal != nil {
+                promise.fulfill()
+            }
+        }
+        //Timeout: '5'
+        waitForExpectations(timeout: 5, handler: nil)
     }
     
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DE0E50241F5AE3C6005B7CFD /* LMSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E50231F5AE3C6005B7CFD /* LMSpinner.swift */; };
+		DE0E502A1F5AF8C5005B7CFD /* LMUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E50291F5AF8C5005B7CFD /* LMUtilityTests.swift */; };
+		DE0E502C1F5B05BE005B7CFD /* LMViewLoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0E502B1F5B05BE005B7CFD /* LMViewLoadingTests.swift */; };
 		DE4BF7CA1F5A7E2500FB299F /* LMShoppingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4BF7C91F5A7E2500FB299F /* LMShoppingCollectionView.swift */; };
 		DE4BF7CC1F5A7E4300FB299F /* LMShoppingCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE4BF7CB1F5A7E4300FB299F /* LMShoppingCollectionView.xib */; };
 		DEC717351F59538D000931E2 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC717341F59538D000931E2 /* UIView+Extension.swift */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		DE0E50231F5AE3C6005B7CFD /* LMSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMSpinner.swift; sourceTree = "<group>"; };
+		DE0E50291F5AF8C5005B7CFD /* LMUtilityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMUtilityTests.swift; sourceTree = "<group>"; };
+		DE0E502B1F5B05BE005B7CFD /* LMViewLoadingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMViewLoadingTests.swift; sourceTree = "<group>"; };
 		DE4BF7C91F5A7E2500FB299F /* LMShoppingCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMShoppingCollectionView.swift; sourceTree = "<group>"; };
 		DE4BF7CB1F5A7E4300FB299F /* LMShoppingCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LMShoppingCollectionView.xib; sourceTree = "<group>"; };
 		DEC717341F59538D000931E2 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				DECB69A51F585E01009162E0 /* LMShoppingAppTests.swift */,
+				DE0E50291F5AF8C5005B7CFD /* LMUtilityTests.swift */,
+				DE0E502B1F5B05BE005B7CFD /* LMViewLoadingTests.swift */,
 				DECB69A71F585E01009162E0 /* Info.plist */,
 			);
 			path = LMShoppingAppTests;
@@ -344,6 +350,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DECB69A61F585E01009162E0 /* LMShoppingAppTests.swift in Sources */,
+				DE0E502C1F5B05BE005B7CFD /* LMViewLoadingTests.swift in Sources */,
+				DE0E502A1F5AF8C5005B7CFD /* LMUtilityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

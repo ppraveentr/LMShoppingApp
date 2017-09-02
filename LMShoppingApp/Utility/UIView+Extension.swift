@@ -33,6 +33,7 @@ public extension UIView {
         var contentView : UIView?
 
         contentView = className.fromNib(self)
+        contentView?.tag = self.hash
         
         // use bounds not frame or it'll be offset
         contentView!.frame = bounds

@@ -101,7 +101,7 @@ extension LMShoppingViewModel {
     func getProducts(completion: @escaping () -> Void) {
         
         //call on the fetchProductList to fetch the Product list
-        LMNetworkManager.fetchProductList { (productDictionary) in
+        LMNetworkManager.fetchProductList { (productDictionary, error) in
             
             //Run on the main queue as completion handler handles UI display and we don't want to block any UI code.
             DispatchQueue.main.async {
