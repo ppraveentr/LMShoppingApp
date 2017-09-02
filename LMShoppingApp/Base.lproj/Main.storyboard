@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7kG-cV-KkJ">
+    <device id="retina5_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Shopping View Controller-->
+        <scene sceneID="ScT-5t-oDy">
+            <objects>
+                <viewController id="7kG-cV-KkJ" customClass="LMShoppingViewController" customModule="LMShoppingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h8z-xW-5JA"/>
+                        <viewControllerLayoutGuide type="bottom" id="QjD-xc-N5r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YXF-gh-1Ym">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXH-WX-gpm">
+                                <rect key="frame" x="20" y="30" width="696" height="30"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1if-Ad-k8n">
+                                        <rect key="frame" x="0.0" y="0.0" width="696" height="31"/>
+                                        <segments>
+                                            <segment title=""/>
+                                            <segment title=""/>
+                                        </segments>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="currencyTypeChanged:" destination="7kG-cV-KkJ" eventType="valueChanged" id="LBg-1j-Nyd"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1if-Ad-k8n" secondAttribute="bottom" id="1cS-61-ADX"/>
+                                    <constraint firstItem="1if-Ad-k8n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RXH-WX-gpm" secondAttribute="leading" id="BbV-22-gJD"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="1if-Ad-k8n" secondAttribute="trailing" id="FLn-3l-A7T"/>
+                                    <constraint firstAttribute="height" constant="30" id="Yjy-0Y-Ozy"/>
+                                    <constraint firstItem="1if-Ad-k8n" firstAttribute="top" secondItem="RXH-WX-gpm" secondAttribute="top" id="eXc-xg-V4a"/>
+                                    <constraint firstItem="1if-Ad-k8n" firstAttribute="centerX" secondItem="RXH-WX-gpm" secondAttribute="centerX" id="fgW-RA-6Ce"/>
+                                    <constraint firstItem="1if-Ad-k8n" firstAttribute="centerY" secondItem="RXH-WX-gpm" secondAttribute="centerY" id="fyd-6U-knj"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slx-sB-xfy" customClass="LMShoppingCollectionView" customModule="LMShoppingApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="70" width="736" height="340"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="340" id="t67-Hh-Fu0"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="shoppingViewModel" destination="drs-nm-7Ok" id="gxF-FC-T1k"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95319688320159912" green="0.96451640129089355" blue="0.9803999662399292" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="RXH-WX-gpm" firstAttribute="top" secondItem="h8z-xW-5JA" secondAttribute="bottom" constant="10" id="2mn-JY-Dn4"/>
+                            <constraint firstItem="slx-sB-xfy" firstAttribute="height" secondItem="YXF-gh-1Ym" secondAttribute="height" multiplier="0.5" priority="995" id="Bxi-E4-gVd"/>
+                            <constraint firstAttribute="trailing" secondItem="slx-sB-xfy" secondAttribute="trailing" id="EnH-vz-nKQ"/>
+                            <constraint firstItem="slx-sB-xfy" firstAttribute="leading" secondItem="YXF-gh-1Ym" secondAttribute="leading" id="Ual-ta-Thy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RXH-WX-gpm" secondAttribute="trailing" id="UdZ-yi-lhx"/>
+                            <constraint firstItem="QjD-xc-N5r" firstAttribute="top" secondItem="slx-sB-xfy" secondAttribute="bottom" priority="998" id="Zr2-N2-MYp"/>
+                            <constraint firstItem="slx-sB-xfy" firstAttribute="top" secondItem="RXH-WX-gpm" secondAttribute="bottom" constant="10" id="ftB-H4-Ghq"/>
+                            <constraint firstItem="RXH-WX-gpm" firstAttribute="leading" secondItem="YXF-gh-1Ym" secondAttribute="leadingMargin" id="ixj-Kg-iU2"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="currencySegmentControl" destination="1if-Ad-k8n" id="Qxr-w3-nyG"/>
+                        <outlet property="shoppingCollectionView" destination="slx-sB-xfy" id="BMr-ic-0Gg"/>
+                        <outlet property="shoppingViewModel" destination="drs-nm-7Ok" id="Wt0-CW-kQi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="95d-0l-LN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="drs-nm-7Ok" customClass="LMShoppingViewModel" customModule="LMShoppingApp" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="-688" y="-481"/>
+        </scene>
+    </scenes>
+</document>
