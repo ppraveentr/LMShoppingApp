@@ -8,6 +8,12 @@
 
 import Foundation
 
+public extension Notification.Name {
+    
+    public static let LMShoppingViewModel_DidChange_Currency =
+        Notification.Name("LMShoppingViewModel_DidChange_Currency")
+}
+
 class LMShoppingViewModel: NSObject {
  
     //Define an products property that will hold the data from the backend
@@ -15,7 +21,11 @@ class LMShoppingViewModel: NSObject {
     var products: LMProducts?
     
     //User selected Currency
-    dynamic var selectedCurrency: String = ""
+    dynamic var selectedCurrency: String = "" {
+        didSet{
+            NotificationCenter.default.post(name: .LMShoppingViewModel_DidChange_Currency, object: self)
+        }
+    }
     
     //Custom Symbol for Currency, can get from backend
     fileprivate let customCurrencySign: [String:String] = ["INR":"₹"]
@@ -74,8 +84,6 @@ class LMShoppingViewModel: NSObject {
                 price = (product.price / directConversion.rate)
             }
             
-            //print(product.currency," ", product.price, " :: >> ", convCurrency, "@", directConversion.rate, " :=: " , price)
-
             return self.getDisplayString(for: price, currencyType: convCurrency)
         }
         

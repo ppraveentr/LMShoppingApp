@@ -44,9 +44,6 @@ class LMShoppingCollectionView: UIView {
         //Load's nib file to View, by invoking super
         super.xibSetup(className: className)
         
-        //TODO: xcode crashing
-        //addObserver(self, forKeyPath: "shoppingViewModel.selectedCurrency", options: [.old, .new], context: nil)
-        
         //Collection View cell registeration
         self.collectionView?.register(LMProductCollectionViewCell.getNIBFile(),
                                       forCellWithReuseIdentifier: "kProductCellIdentifier")
@@ -59,7 +56,7 @@ class LMShoppingCollectionView: UIView {
         self.titleLabel.text = self.shoppingViewModel.productTitle()
         
         //Reload Collection cell
-        self.collectionView.reloadData()
+        self.reloadContent()
     }
     
     //Reload only visible content in collectionView
@@ -78,17 +75,6 @@ class LMShoppingCollectionView: UIView {
            self.pageControl.numberOfPages = Int(self.collectionView.contentSize.width / self.frame.width)
         }
     }
-    
-//    // MARK: - Key-Value Observing
-//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?,
-//                               context: UnsafeMutableRawPointer?) {
-//        
-//        if keyPath == "shoppingViewModel.selectedCurrency" {
-//            self.reloadContent()
-//        }else{
-//            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-//        }
-//    }
 }
 
 //MARK: CollectionView Delegates

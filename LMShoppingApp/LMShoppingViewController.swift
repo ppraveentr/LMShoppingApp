@@ -23,6 +23,7 @@ class LMShoppingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Show spinner while fetching content from Backend
         LMSpinner.spin(style: .whiteLarge) 
         
         //Fetch Product details from backend
@@ -51,13 +52,11 @@ class LMShoppingViewController: UIViewController {
     @IBAction func currencyTypeChanged(_ sender: Any) {
         
         //Get title of currenly selected Segment
-        let selectedCur = currencySegmentControl.titleForSegment(at: currencySegmentControl.selectedSegmentIndex)
-        
-        //Update current Currency to viewModel
-        shoppingViewModel.selectedCurrency = selectedCur!
-        
-        //Recalcuate Currency value for all products
-        self.shoppingCollectionView.reloadContent()
+        if let selectedCur = currencySegmentControl.titleForSegment(at: currencySegmentControl.selectedSegmentIndex) {
+            
+            //Update current Currency to viewModel
+            shoppingViewModel.selectedCurrency = selectedCur
+        }
     }
     
     //Relaod Collection view on Device orientation

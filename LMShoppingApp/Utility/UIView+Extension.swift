@@ -11,12 +11,20 @@ import UIKit
 public extension UIView {
     
     public class func getNIBFile() -> UINib? {
+        //Get nib based on once's class name
         return UINib(nibName: get_classNameAsString(obj: self) ?? "", bundle: nil)
     }
     
+    public class func fromNib(_ owner: Any? = nil) -> UIView? {
+        //Get view based on once's class name
+        return fromNib(named: get_classNameAsString(obj: self) ?? "", owner: owner)
+    }
+
     //Retruns first view from the nib file
     public class func fromNib(named name: String, owner: Any? = nil) -> UIView? {
+        //Get all object inside the nib
         let allObjects = Bundle.main.loadNibNamed(name, owner: owner, options: nil) ?? []
+        //Get first view object
         if let nib = allObjects.first as? UIView {
             return nib
         }
@@ -24,15 +32,13 @@ public extension UIView {
         return nil
     }
     
-    public class func fromNib(_ owner: Any? = nil) -> UIView? {
-        return fromNib(named: get_classNameAsString(obj: self) ?? "", owner: owner)
-    }
-    
-    //Load xib's view as subView
+    //Add once's xib-view as subView
     public func xibSetup(className: UIView.Type) {
         var contentView : UIView?
 
+        //Get view from nib
         contentView = className.fromNib(self)
+        //Set contents tag as self'hash, just for unique identifiation
         contentView?.tag = self.hash
         
         // use bounds not frame or it'll be offset
