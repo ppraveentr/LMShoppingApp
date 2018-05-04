@@ -11,10 +11,7 @@ import UIKit
 
 /**
  Get the class name as a string from a class
- 
- - parameter theObject: An NSObject for whitch the string representation of the class will be returned
- - parameter theObject: An AnyClass for whitch the string representation of the class will be returned
- 
+ - parameter obj: An NSObject for whitch the string representation of the class will be returned
  - returns: The string representation of the class (name of the bundle dot name of the class)
  */
 public func get_classNameAsString(obj: Any?) -> String? {
@@ -40,7 +37,7 @@ extension String {
     
     //retruns no of chars
     var length: Int {
-        return characters.count
+        return count
     }
     
     /**
@@ -58,7 +55,7 @@ extension String {
         }
         
         //To be exact to 6 digit, if not retun 'gray'
-        if ((cString.characters.count) != 6) {
+        if ((cString.count) != 6) {
             return UIColor.gray
         }
         
