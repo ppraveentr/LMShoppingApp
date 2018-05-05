@@ -21,7 +21,7 @@ class LMShoppingViewModel: NSObject {
     var products: LMProducts?
     
     //User selected Currency
-    dynamic var selectedCurrency: String = "" {
+    @objc dynamic var selectedCurrency: String = "" {
         didSet{
             NotificationCenter.default.post(name: .LMShoppingViewModel_DidChange_Currency, object: self)
         }

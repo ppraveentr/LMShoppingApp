@@ -34,10 +34,10 @@ extension UISegmentedControl {
     func customizeAppearanceForCurrency(for height: Int = 1) {
         
         //title-font for normal state
-        setTitleTextAttributes([NSFontAttributeName:UIFont.boldSystemFont(ofSize: 13),NSForegroundColorAttributeName:UIColor.black], for:.normal)
+        setTitleTextAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 13), NSAttributedStringKey.foregroundColor: UIColor.black], for:.normal)
         
         //title-font for selected state
-        setTitleTextAttributes([NSFontAttributeName:UIFont.boldSystemFont(ofSize: 13),NSForegroundColorAttributeName:UIColor.white], for:.selected)
+        setTitleTextAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 13), NSAttributedStringKey.foregroundColor: UIColor.white], for:.selected)
         
         //divider-image between segment with spacing for '10px'
         setDividerImage(UIImage().colored(with: .clear, size: CGSize(width: 10, height: height)), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)

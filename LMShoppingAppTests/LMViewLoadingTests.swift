@@ -50,7 +50,7 @@ class LMViewLoadingTests: XCTestCase {
     override func setUp() {
         super.setUp()
         controllerUnderTest = UIStoryboard(name: "Main",
-                                           bundle: nil).instantiateInitialViewController() as! LMShoppingViewController!
+                                           bundle: nil).instantiateInitialViewController() as! LMShoppingViewController
         
         controllerUnderTest.shoppingViewModel.products = product
     }
@@ -147,7 +147,7 @@ class LMViewLoadingTests: XCTestCase {
         
         //Test for selected-segment test color
         if let selectedAtt = segment.titleTextAttributes(for: .selected),
-            let selectedColor = selectedAtt[NSForegroundColorAttributeName] as? UIColor {
+            let selectedColor = selectedAtt[NSAttributedStringKey.foregroundColor] as? UIColor {
             
             XCTAssertEqual(selectedColor, UIColor.white)
         }else{
@@ -156,7 +156,7 @@ class LMViewLoadingTests: XCTestCase {
 
         //Test for normal-segment test color
         if let selectedAtt = segment.titleTextAttributes(for: .normal),
-            let selectedColor = selectedAtt[NSForegroundColorAttributeName] as? UIColor {
+            let selectedColor = selectedAtt[NSAttributedStringKey.foregroundColor] as? UIColor {
             
             XCTAssertEqual(selectedColor, UIColor.black)
         }else{

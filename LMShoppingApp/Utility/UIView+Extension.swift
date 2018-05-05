@@ -33,7 +33,7 @@ public extension UIView {
     }
     
     //Add once's xib-view as subView
-    public func xibSetup(className: UIView.Type) {
+    @objc public func xibSetup(className: UIView.Type) {
         var contentView : UIView?
 
         //Get view from nib

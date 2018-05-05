@@ -63,8 +63,8 @@ class LMProductCollectionViewCell: UICollectionViewCell {
         //Get item size fitting max for baseView size
         let size = self.systemLayoutSizeFitting(
             CGSize(width: baseView.frame.width, height: baseView.frame.height),
-            withHorizontalFittingPriority: UILayoutPriorityRequired,
-            verticalFittingPriority: UILayoutPriorityRequired)
+            withHorizontalFittingPriority: UILayoutPriority.required,
+            verticalFittingPriority: UILayoutPriority.required)
         
         return size
     }
