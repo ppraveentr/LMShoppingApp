@@ -34,16 +34,16 @@ extension UISegmentedControl {
     func customizeAppearanceForCurrency(for height: Int = 1) {
         
         //title-font for normal state
-        setTitleTextAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 13), NSAttributedStringKey.foregroundColor: UIColor.black], for:.normal)
+        setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.blue], for:.normal)
         
         //title-font for selected state
-        setTitleTextAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 13), NSAttributedStringKey.foregroundColor: UIColor.white], for:.selected)
+        setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.white], for:.selected)
         
         //divider-image between segment with spacing for '10px'
         setDividerImage(UIImage().colored(with: .clear, size: CGSize(width: 10, height: height)), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
         
         //text-color for normal segment
-        setBackgroundImage(UIImage().colored(with: "#E7E6E6".hexColor(), size: CGSize(width: 1, height: height)), for: .normal, barMetrics: .default)
+//        setBackgroundImage(UIImage().colored(with: "#E7E6E6".hexColor(), size: CGSize(width: 1, height: height)), for: .normal, barMetrics: .default)
         
         //text-color for selected segment
         setBackgroundImage(UIImage().colored(with: "#5D9AD5".hexColor(), size: CGSize(width: 1, height: height)), for: .selected, barMetrics: .default);

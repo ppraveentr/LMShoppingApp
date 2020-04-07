@@ -16,7 +16,7 @@ class LMActivityIndicatorView: UIActivityIndicatorView {
         
         //Always bring to front of view
         if let window = UIApplication.shared.delegate?.window {
-            window?.bringSubview(toFront: self)
+            window?.bringSubviewToFront(self)
         }
     }
 }
@@ -26,15 +26,15 @@ open class LMSpinner {
     internal static var spinnerView: LMActivityIndicatorView?
     
     //White color spinner
-    open static var style: UIActivityIndicatorViewStyle = .white
+    public static var style: UIActivityIndicatorView.Style = .white
     
     //Black color bg, with .6 alpha
-    open static var backgroundColor: UIColor = UIColor(white: 0, alpha: 0.6)
+    public static var backgroundColor: UIColor = UIColor(white: 0, alpha: 0.6)
     
     //Handler when spinner is loading
     internal static var touchHandler: (() -> Void)?
     
-    open static func spin(style: UIActivityIndicatorViewStyle = style, backgroundColor: UIColor = backgroundColor, touchHandler: (() -> Void)? = nil) {
+    public static func spin(style: UIActivityIndicatorView.Style = style, backgroundColor: UIColor = backgroundColor, touchHandler: (() -> Void)? = nil) {
         
         //Remove exising spinner
         spinnerView?.removeFromSuperview()
@@ -47,7 +47,7 @@ open class LMSpinner {
             spinnerView = LMActivityIndicatorView(frame: frame)
             
             spinnerView!.backgroundColor = backgroundColor
-            spinnerView!.activityIndicatorViewStyle = style
+            spinnerView!.style = style
             
             //To expand to entier window
             spinnerView!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -77,7 +77,7 @@ open class LMSpinner {
     }
     
     //Stop spinner
-    open static func stop() {
+    public static func stop() {
         
         //if available, stop and remove from superView, make it nill
         if let _ = spinnerView {

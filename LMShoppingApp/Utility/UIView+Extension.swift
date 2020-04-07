@@ -10,18 +10,18 @@ import UIKit
 
 public extension UIView {
     
-    public class func getNIBFile() -> UINib? {
+    class func getNIBFile() -> UINib? {
         //Get nib based on once's class name
         return UINib(nibName: get_classNameAsString(obj: self) ?? "", bundle: nil)
     }
     
-    public class func fromNib(_ owner: Any? = nil) -> UIView? {
+    class func fromNib(_ owner: Any? = nil) -> UIView? {
         //Get view based on once's class name
         return fromNib(named: get_classNameAsString(obj: self) ?? "", owner: owner)
     }
 
     //Retruns first view from the nib file
-    public class func fromNib(named name: String, owner: Any? = nil) -> UIView? {
+    class func fromNib(named name: String, owner: Any? = nil) -> UIView? {
         //Get all object inside the nib
         let allObjects = Bundle.main.loadNibNamed(name, owner: owner, options: nil) ?? []
         //Get first view object
@@ -33,7 +33,7 @@ public extension UIView {
     }
     
     //Add once's xib-view as subView
-    @objc public func xibSetup(className: UIView.Type) {
+    @objc func xibSetup(className: UIView.Type) {
         var contentView : UIView?
 
         //Get view from nib
@@ -45,7 +45,7 @@ public extension UIView {
         contentView!.frame = bounds
         
         // Make the view stretch with containing view
-        contentView!.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        contentView!.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         
         // Adding custom subview on top of our view (over any custom drawing > see note below)
         addSubview(contentView!)

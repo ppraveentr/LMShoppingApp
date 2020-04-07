@@ -45,7 +45,9 @@ class LMShoppingViewController: UIViewController {
         self.currencySegmentControl.updateItems(items: self.shoppingViewModel.avaialbleCurrenyConverter())
         
         //set currency based on segement control selection
-        self.currencyTypeChanged(currencySegmentControl)
+        if let currencySegmentControl = currencySegmentControl {
+            self.currencyTypeChanged(currencySegmentControl)
+        }
     }
     
     //Segment Controll value-change delegate

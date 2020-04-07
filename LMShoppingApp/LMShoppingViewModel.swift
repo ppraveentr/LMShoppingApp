@@ -10,7 +10,7 @@ import Foundation
 
 public extension Notification.Name {
     
-    public static let LMShoppingViewModel_DidChange_Currency =
+    static let LMShoppingViewModel_DidChange_Currency =
         Notification.Name("LMShoppingViewModel_DidChange_Currency")
 }
 
